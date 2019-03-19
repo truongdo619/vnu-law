@@ -1,0 +1,41 @@
+.node {
+    stroke: gray;
+    stroke-width: 2px;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    background: honeydew;
+    font: 16px sans-serif;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 8px;
+    pointer-events: none; /* keep the mouseover when over the tooltip */
+}
+.table
+{
+    font-size:12px;
+    border-collapse: collapse;
+    border-radius: 7px;
+    position:fixed;
+    width: 18%;
+    bottom:0;
+    opacity: 0;
+}
+.right tr:last-child{
+    background-color: azure;
+}
+.table b{
+    color: red;
+}
+.table tbody{
+    background-color: beige;
+}
+.right{
+    right: 0;
+}
+.left{
+    left:0;
+}
