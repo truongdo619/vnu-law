@@ -1,3 +1,81 @@
+function right()
+{
+    return "<table class='table-bordered table-sm'>"
+    +"<thead class='thead-dark'>"
+    +"<tr>"
+      +"<th scope='col'>Thuộc tính</th>"
+      +"<th scope='col'>Nội dung</th>"
+    +"</tr>"
+  +"</thead>"
+  +"<tbody>"
+    +"<tr>"
+      +"<th scope='row'>Số ký hiệu</th>"
+      +"<td>07/2019/QĐ-UBND</td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Loại văn bản</th>"
+        +"<td>	Quyết định</td>"
+     +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Nguồn thu thập</th>"
+        +"<td></td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Cơ quan ban hành/ Chức danh / Người ký</th>"
+        +"<td></td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Phạm vi</th>"
+        +"<td>Tỉnh Quảng Bình</td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Ngày ban hành</th>"
+        +"<td>06/03/2019</td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Ngày có hiệu lực</th>"
+        +"<td>20/03/2019</td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Ngày đăng công báo</th>"
+        +"<td>	...</td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Phó Chủ tịch</th>"
+        +"<td>Lê Minh Ngân</td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row' colspan='2'>Tình trạng hiệu lực: <b>Chưa có hiệu lực</b></th>"
+    +"</tr>"
+  +"</tbody>"
+  +"</table>";
+}
+
+function left()
+{
+    return "<table class='table-bordered table-sm'>"
+    +"<thead class='thead-dark'>"
+    +"<tr>"
+      +"<th scope='col'>Thuộc tính</th>"
+      +"<th scope='col'>Nội dung</th>"
+    +"</tr>"
+  +"</thead>"
+  +"<tbody>"
+    +"<tr>"
+      +"<th scope='row'>Quan hệ</th>"
+      +"<td>07/2019/QĐ-UBND</td>"
+    +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Văn bản tham chiếu</th>"
+        +"<td>	Quyết định</td>"
+     +"</tr>"
+    +"<tr>"
+        +"<th scope='row'>Văn bản được tham chiếu</th>"
+        +"<td></td>"
+    +"</tr>"
+  +"</tbody>"
+  +"</table>"
+}
 var width = 1920,
     height = 900;
 
@@ -18,10 +96,8 @@ svg = d3.select('body').append('svg')
 //set up force layout
 force = d3.layout.force()
     .size([width, height])
-    .charge(-3000)
-    .friction(0.6)
-    .gravity(0.6)
-    .distance(300)
+    .charge(-1500)
+    .distance(200)
     .on("tick", tick);
 
 // tooltip div:
@@ -33,86 +109,13 @@ const rightPopup = d3.select('body').append("div")
     .classed("right", true)
     .classed("table", true)
     .classed("table-responsive", true)
-    .html(
-        "<table class='table-bordered table-sm'>"
-        +"<thead class='thead-dark'>"
-        +"<tr>"
-          +"<th scope='col'>Thuộc tính</th>"
-          +"<th scope='col'>Nội dung</th>"
-        +"</tr>"
-      +"</thead>"
-      +"<tbody>"
-        +"<tr>"
-          +"<th scope='row'>Số ký hiệu</th>"
-          +"<td>07/2019/QĐ-UBND</td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Loại văn bản</th>"
-            +"<td>	Quyết định</td>"
-         +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Nguồn thu thập</th>"
-            +"<td></td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Cơ quan ban hành/ Chức danh / Người ký</th>"
-            +"<td></td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Phạm vi</th>"
-            +"<td>Tỉnh Quảng Bình</td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Ngày ban hành</th>"
-            +"<td>06/03/2019</td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Ngày có hiệu lực</th>"
-            +"<td>20/03/2019</td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Ngày đăng công báo</th>"
-            +"<td>	...</td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Phó Chủ tịch</th>"
-            +"<td>Lê Minh Ngân</td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row' colspan='2'>Tình trạng hiệu lực: <b>Chưa có hiệu lực</b></th>"
-        +"</tr>"
-      +"</tbody>"
-      +"</table>"
-    );
+    .html(right());
 
 const leftPopup = d3.select('body').append("div")
     .classed("table", true)
     .classed("left", true)
     .classed("table-responsive", true)
-    .html(
-        "<table class='table-bordered table-sm'>"
-        +"<thead class='thead-dark'>"
-        +"<tr>"
-          +"<th scope='col'>Thuộc tính</th>"
-          +"<th scope='col'>Nội dung</th>"
-        +"</tr>"
-      +"</thead>"
-      +"<tbody>"
-        +"<tr>"
-          +"<th scope='row'>Quan hệ</th>"
-          +"<td>07/2019/QĐ-UBND</td>"
-        +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Văn bản tham chiếu</th>"
-            +"<td>	Quyết định</td>"
-         +"</tr>"
-        +"<tr>"
-            +"<th scope='row'>Văn bản được tham chiếu</th>"
-            +"<td></td>"
-        +"</tr>"
-      +"</tbody>"
-      +"</table>"
-    );
+    .html(left());
 
 link = svg.selectAll(".link");
 node = svg.selectAll('.node');
@@ -125,8 +128,8 @@ svg.append("svg:defs").selectAll("marker")
     .attr("viewBox", "0 -5 10 10")
     .attr("refX", 50)
     .attr("refY", 0)
-    .attr("markerWidth", 6)
-    .attr("markerHeight", 6)
+    .attr("markerWidth", 3)
+    .attr("markerHeight", 3)
     .attr("orient", "auto")
   .append("svg:path")
     .attr("d", "M0,-5L10,0L0,5"); 
@@ -177,15 +180,17 @@ function update()
       link.enter().insert('path', ":first-child")
           .attr('class', 'link')
           .attr('marker-end',"url(#end)")
+          .style("cursor", "pointer")
           .style("stroke", function(){ 
-              return "hsl(" + Math.random() * 360 + ",100%,50%)"})
-          .style("stroke-width", 2)
+              //return "hsl(" + Math.random() * 360 + ",100%,50%)"
+              return "#666";
+            })
+          .style("stroke-width", 5)
           .on("mouseover", function(d){
-              d3.select(this).style("cursor", "pointer");
               tooltip.transition()
               .duration(300)
               .style("opacity", 1) 
-              tooltip.html(d.source.country + " to " + d.target.country)
+              tooltip.html(d.source.x + " to " + d.target.x)
               .style("left", (d3.event.pageX - d3.select('.tooltip').node().offsetWidth - 5) + "px")
               .style("top", (d3.event.pageY - d3.select('.tooltip').node().offsetHeight) + "px")
               leftPopup.transition()
@@ -208,13 +213,16 @@ function update()
                       .attr('class', 'node')
                       .on("contextmenu", rightclick)
                       .on("dblclick", dbclick)
+                      .style("cursor", "pointer")
                       .call(force.drag)
                       .on("mouseover", function(d){
-                          d3.select(this).style("cursor", "pointer");
+                          d3.select(this).select("circle").transition()
+                          .duration(750)
+                          .attr("r", 55);
                           tooltip.transition()
                           .duration(300)
                           .style("opacity", 1);
-                          tooltip.html(d.country)
+                          tooltip.html(d.x)
                           .style("left", (d3.event.pageX - d3.select('.tooltip').node().offsetWidth - 5) + "px")
                           .style("top", (d3.event.pageY - d3.select('.tooltip').node().offsetHeight) + "px");
                           rightPopup.transition()
@@ -222,6 +230,9 @@ function update()
                           .style("opacity", 1);
                       })
                       .on("mouseout", function(d){
+                        d3.select(this).select("circle").transition()
+                        .duration(750)
+                        .attr("r", 40);
                           tooltip.transition()
                           .duration(200)
                           .style("opacity", 0);
@@ -230,18 +241,18 @@ function update()
                           .style("opacity", 0);
                       });
           nodeEnter.append('circle')
-          .attr("r", function(d){ return d.r})
+          .attr("r", function(d){ return 40})
           .style("fill", function(){ 
-              return "hsl(" + Math.random() * 360 + ",100%,50%)"})
-          .style("stroke-width", 1)
+              //return "hsl(" + Math.random() * 360 + ",100%,50%)"
+            return " #ccc"})
+          .style("stroke-width", 1.5)
+          .style("stroke", "#fff");
   
           nodeEnter.append("text")
-          .attr("font-family", "sans-serif")
-          .attr("font-size", "13px")
-          .attr("fill", "red")
-          .attr("dy", ".5em")
-          .attr("dy", ".4em")
-          .text("a");
+          .attr("x", -14)
+          .attr("y", 0)
+          .attr("dy", ".2em")
+          .text("data");
 }
 function tick(e) {
     link.attr( "d", function(d){ return "M" + d.source.x + "," + d.source.y + ", " + d.target.x + "," + d.target.y});
@@ -269,6 +280,7 @@ function dbclick(d){
 }
 
 function rightclick(d){
+    d3.event.preventDefault();
     function recurse(node)
     {
         if (node.collapsed == true){
@@ -281,9 +293,7 @@ function rightclick(d){
             });
         }
     }
-    if (!d3.event.defaultPrevented) {
        recurse(d);
-    }
     update();
 }
 	})
