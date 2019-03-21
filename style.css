@@ -2,6 +2,7 @@ div.tooltip {
     position: absolute;
     text-align: center;
     padding: 5px;
+    max-width:300px;
     background: honeydew;
     font: 16px sans-serif;
     font-weight: bold;
@@ -15,7 +16,7 @@ div.tooltip {
     border-collapse: collapse;
     border-radius: 7px;
     position:fixed;
-    width: 18%;
+    width: 20%;
     bottom:0;
     opacity: 0;
 }
